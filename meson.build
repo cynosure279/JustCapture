@@ -21,5 +21,8 @@ version_h = configure_file(
   configuration: conf,
 )
 
+# Include the build root so generated headers (version.h) are found
+justcapture_inc = include_directories('include', '.')
+
 subdir('src')
 subdir('tests')

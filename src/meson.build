@@ -29,7 +29,7 @@ libjustcapture = library('justcapture',
   libjustcapture_sources,
   version: meson.project_version(),
   soversion: '0',
-  include_directories: include_directories('..', '../include'),
+  include_directories: justcapture_inc,
   dependencies: [glib_dep, gio_dep, gobject_dep],
   c_args: '-DJUSTCAPTURE_COMPILATION',
   install: true,
@@ -40,6 +40,6 @@ install_headers(version_h, subdir: 'justcapture/')
 
 libjustcapture_dep = declare_dependency(
   link_with: libjustcapture,
-  include_directories: include_directories('..', '../include'),
+  include_directories: justcapture_inc,
   dependencies: [glib_dep, gio_dep, gobject_dep],
 )
