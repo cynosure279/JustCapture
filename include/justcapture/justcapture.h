@@ -6,7 +6,7 @@
 #ifndef JUSTCAPTURE_H
 #define JUSTCAPTURE_H
 
-#include "justcapture/version.h"
+#include "version.h"
 #include "justcapture/errors.h"
 #include "justcapture/types.h"
 #include "justcapture/portal-client.h"
