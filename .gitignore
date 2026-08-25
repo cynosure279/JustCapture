@@ -1,0 +1,17 @@
+# Build artifacts
+builddir/
+build/
+*.o
+*.so
+*.so.*
+*.a
+
+# IDE
+.vscode/
+.idea/
+*~
+*.swp
+*.swo
+
+# Generated
+compile_commands.json
