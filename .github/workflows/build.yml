@@ -1,0 +1,36 @@
+# GitHub Actions CI for libjustcapture
+#
+# Builds the library and runs unit tests on Arch Linux.
+#
+name: Build libjustcapture
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: archlinux:latest
+      options: --user root
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Install dependencies
+        run: |
+          pacman -Syu --noconfirm
+          pacman -S --noconfirm meson ninja gcc pkg-config glib2
+
+      - name: Build and test
+        run: |
+          meson setup builddir
+          ninja -C builddir
+          meson test -C builddir --print-errorlogs
+
